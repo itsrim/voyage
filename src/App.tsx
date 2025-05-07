@@ -1,14 +1,15 @@
 
+import 'bulma/css/bulma.min.css'
 import './App.css'
-import { TaskDistributor } from './components/TaskDistributor'
+import { TravelInfo } from './components/TravelInfo'
 
 function App() {
-
   return (
     <>
-     <TaskDistributor />
+      <TravelInfo />
     </>
   )
 }
 
 export default App
+

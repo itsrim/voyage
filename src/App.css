@@ -1,26 +1,23 @@
 body {
-  background-color: #121212;
-  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('/trip-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.box,
-.card,
-.input,
-.select select,
-.button,
-.tag {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  border-color: #333;
+.tile-container {
+  transition: transform 0.2s ease;
 }
 
-.input:focus,
-.select select:focus,
-.button:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 0.125em rgba(74, 144, 226, 0.25);
+.tile-container:hover {
+  transform: translateY(-2px);
 }
 
-.calendar-white::-webkit-calendar-picker-indicator {
-  filter: invert(1);
+.tile-content {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  will-change: height;
 }
