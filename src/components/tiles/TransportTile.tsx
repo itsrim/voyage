@@ -157,7 +157,7 @@ const TransportContent: React.FC = () => {
 export const TransportTile = () => (
   <Tile 
     title="TRANSPORT" 
-    image="/trip-transport.jpg"
+    image="/voyage/trip-transport.jpg"
   >
     <TransportContent />
   </Tile>

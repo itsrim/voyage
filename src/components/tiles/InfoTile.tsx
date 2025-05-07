@@ -26,7 +26,7 @@ const renderContent = (content: string) => {
 export const InfoTile = () => (
   <Tile 
     title="INFORMATIONS PRATIQUES" 
-    image="/trip-info.jpg"
+    image="/voyage/trip-info.jpg"
   >
     <div>
       <h3>Practical Information</h3>

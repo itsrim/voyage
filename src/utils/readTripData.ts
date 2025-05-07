@@ -7,8 +7,9 @@ interface TransportDataItem {
 }
 export const readTripData = async () : Promise<TransportDataItem[]>=> {
   try {
-    const basePath = import.meta.env.MODE === 'production' ? '/voyage' : '';
-    const response = await fetch(`${basePath}/trip-data.csv`);
+    // const basePath = import.meta.env.MODE === 'production' ? '/voyage' : '';
+    // const response = await fetch(`${basePath}/trip-data.csv`);
+    const response = await fetch(`voyage/trip-data.csv`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

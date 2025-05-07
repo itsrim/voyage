@@ -26,7 +26,7 @@ const renderContent = (content: string) => {
 export const ContactTile = () => (
   <Tile 
     title="CONTACTS" 
-    image="/trip-contacts.jpg"
+    image="/voyage/trip-contacts.jpg"
   >
     <div>
       <h3>Important Contacts</h3>
