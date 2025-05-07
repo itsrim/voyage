@@ -5,7 +5,7 @@ interface TransportDataItem {
   Item: string;
   Details: string;
 }
-export const readvoyageData = async () : Promise<TransportDataItem[]>=> {
+export const readTripData = async () : Promise<TransportDataItem[]>=> {
   try {
     const basePath = process.env.NODE_ENV === 'production' ? '/trip' : '';
     const response = await fetch(`${basePath}/trip-data.csv`);
