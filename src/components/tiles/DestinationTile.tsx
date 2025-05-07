@@ -102,7 +102,8 @@ const DestinationContent: React.FC = () => {
 export const DestinationTile = () => (
   <Tile 
     title="DESTINATION" 
-    image="/trip-destination.jpg"
+    // image="/trip-destination.jpg"
+    image="/voyage/trip-destination.jpg"
   >
     <DestinationContent />
   </Tile>
