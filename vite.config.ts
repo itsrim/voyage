@@ -8,8 +8,8 @@ export default defineConfig({
   VitePWA({
     registerType: 'autoUpdate',
     manifest: {
-      name: 'Nom de ton app',
-      short_name: 'Nom court',
+      name: 'voyage',
+      short_name: 'voyage',
       start_url: '/',
       display: 'standalone',
       background_color: '#000000',
