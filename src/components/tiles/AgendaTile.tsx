@@ -135,7 +135,7 @@ const AgendaContent: React.FC = () => {
           return acc;
         }, []);
 
-        console.log('Transformed agenda data:', groupedActivities);
+        // console.log('Transformed agenda data:', groupedActivities);
         setSchedule(groupedActivities);
       } catch (error) {
         console.error('Error loading agenda data:', error);
