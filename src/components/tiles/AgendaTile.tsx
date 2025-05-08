@@ -169,7 +169,7 @@ const AgendaContent: React.FC = () => {
 export const AgendaTile = () => (
   <Tile 
     title="AGENDA" 
-    image="/voyage/trip-calendar.jpg"
+    image="/voyage/trip-destination.jpg"
   >
     <AgendaContent />
   </Tile>
