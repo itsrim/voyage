@@ -1,4 +1,19 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + pwa
+
+Exemple voyage
+
+ ![Alt text](https://raw.githubusercontent.com/itsrim/voyage/refs/heads/main/portugay.png)
+
+
+deploy
+```js
+git add -A
+git commit -m '...'
+git push
+yarn build
+yarn deploy
+```
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
