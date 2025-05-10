@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tile } from '../shared/Tile';
 import { readTripData } from '../../utils/readTripData';
+import { renderContent } from '../../utils/renderContent';
 
 interface TransportDataItem {
   Category: string;
@@ -22,28 +23,6 @@ const TransportContent: React.FC = () => {
     bus: { local: [], taxi: [] }
   });
 
-  const renderContent = (content: string) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    if (urlRegex.test(content)) {
-      return content.split(urlRegex).map((part, index) => {
-        if (urlRegex.test(part)) {
-          return (
-            <a 
-              key={index} 
-              href={part} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="has-text-info"
-            >
-              {part}
-            </a>
-          );
-        }
-        return part;
-      });
-    }
-    return content;
-  };
 
   useEffect(() => {
     const loadData = async () => {

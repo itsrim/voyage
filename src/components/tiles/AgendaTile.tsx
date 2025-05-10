@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Tile } from '../shared/Tile';
 import { readTripData } from '../../utils/readTripData';
+import { renderContent } from '../../utils/renderContent';
 
 interface DayScheduleProps {
   date: string;
@@ -9,7 +10,6 @@ interface DayScheduleProps {
   isToday: boolean;
   activities: Array<{ time: string; activity: string }>;
   onHeightChange: (height: number) => void;
-  renderContent: (content: string) => React.ReactNode;
 }
 
 const DaySchedule: React.FC<DayScheduleProps> = ({ 
@@ -19,7 +19,6 @@ const DaySchedule: React.FC<DayScheduleProps> = ({
   isToday, 
   activities, 
   onHeightChange,
-  renderContent 
 }) => {
   const [isOpen, setIsOpen] = useState(isToday);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -73,29 +72,27 @@ const AgendaContent: React.FC = () => {
     month: string;
     activities: Array<{ time: string; activity: string }>;
   }>>([]);
-
-  const renderContent = (content: string) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    if (urlRegex.test(content)) {
-      return content.split(urlRegex).map((part, index) => {
-        if (urlRegex.test(part)) {
-          return (
-            <a 
-              key={index} 
-              href={part} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="has-text-info"
-            >
-              {part}
-            </a>
-          );
-        }
-        return part;
-      });
-    }
-    return content;
-  };
+  //   const urlRegex = /(https?:\/\/[^\s]+)/g;
+  //   if (urlRegex.test(content)) {
+  //     return content.split(urlRegex).map((part, index) => {
+  //       if (urlRegex.test(part)) {
+  //         return (
+  //           <a 
+  //             key={index} 
+  //             href={part} 
+  //             target="_blank" 
+  //             rel="noopener noreferrer"
+  //             className="has-text-info"
+  //           >
+  //             {part}
+  //           </a>
+  //         );
+  //       }
+  //       return part;
+  //     });
+  //   }
+  //   return content;
+  // };
 
   useEffect(() => {
     const loadTripData = async () => {
@@ -160,7 +157,7 @@ const AgendaContent: React.FC = () => {
           month={day.month}
           activities={day.activities}
           onHeightChange={(height) => handleDayHeightChange(index, height)}
-          renderContent={renderContent} isToday={false}        />
+           isToday={false}        />
       ))}
     </div>
   );

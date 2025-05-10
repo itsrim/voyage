@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tile } from '../shared/Tile';
 import { readTripData } from '../../utils/readTripData';
+import { renderContent } from '../../utils/renderContent';
 
 const DestinationContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState('cities');
@@ -30,29 +31,6 @@ const DestinationContent: React.FC = () => {
     loadData();
   }, []);
 
-  const renderContent = (content: string) => {
-    // Check if content contains a URL
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    if (urlRegex.test(content)) {
-      return content.split(urlRegex).map((part, index) => {
-        if (urlRegex.test(part)) {
-          return (
-            <a 
-              key={index} 
-              href={part} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="has-text-info"
-            >
-              {part}
-            </a>
-          );
-        }
-        return part;
-      });
-    }
-    return content;
-  };
 
   return (
     <div className="content">
