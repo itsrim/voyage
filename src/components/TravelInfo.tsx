@@ -8,27 +8,43 @@ import { ContactTile } from './tiles/ContactTile';
 
 export const TravelInfo: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState('/voyage/trip-background.jpg');
+  const [title, setTitle] = useState('Titre');
+  const [dateTitle, setDateTitle] = useState('dates du séjour');
 
   useEffect(() => {
-    const loadBackgroundImage = async () => {
+    const loadData = async () => {
       try {
         const data = await readTripData();
+        
+        // Load background image
         const backgroundEntry = data.find((item: any) => 
           item.Category === 'trip-background'
         );
-        
-        // Vérifie si une URL est fournie dans la colonne Subcategory
         if (backgroundEntry?.Subcategory && backgroundEntry.Subcategory.trim() !== '') {
           setBackgroundImage(backgroundEntry.Subcategory.trim());
         }
-        // Si aucune URL n'est trouvée, l'image par défaut reste '/trip-background.jpg'
+
+        // Load title and date - looking at Category field
+        const titleEntry = data.find((item: any) => 
+          item.Category === 'title'
+        );
+        if (titleEntry?.Subcategory) {
+          setTitle(titleEntry.Subcategory);
+        }
+
+        const dateTitleEntry = data.find((item: any) => 
+          item.Category === 'dateTitle'
+        );
+        if (dateTitleEntry?.Subcategory) {
+          setDateTitle(dateTitleEntry.Subcategory);
+        }
+
       } catch (error) {
-        console.error('Error loading background image:', error);
-        // En cas d'erreur, l'image par défaut reste '/trip-background.jpg'
+        console.error('Error loading data:', error);
       }
     };
 
-    loadBackgroundImage();
+    loadData();
   }, []);
 
   return (
@@ -52,8 +68,8 @@ export const TravelInfo: React.FC = () => {
           textAlign: 'center',
           color: 'white'
         }}>
-          <h1 style={{ fontSize: '2rem', marginBottom: '8px' }}>Portugal</h1>
-          <p>13-21 Juillet 2025</p>
+          <h1 style={{ fontSize: '2rem', marginBottom: '8px' }}>{title}</h1>
+          <p>{dateTitle}</p>
         </header>
 
         <div className="tiles-grid" style={{
