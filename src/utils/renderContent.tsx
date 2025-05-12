@@ -2,14 +2,28 @@ import React from 'react';
 
 export const renderContent = (content: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const clean = content.replace(/\\n/g, '\n'); // ← ici
+  const clean = content.replace(/\\n/g, '\n');
 
   return clean.split(urlRegex).map((part, index) => {
     if (urlRegex.test(part)) {
       if (/\.(jpeg|jpg|gif|png|webp)$/i.test(part)) {
         return (
-          <div key={index} className="mb-2">
-            <img src={part} alt="img" style={{ maxWidth: '100%' }} />
+          <div key={index} style={{ 
+            width: '100%', 
+            overflow: 'hidden',
+            marginBottom: '1rem',
+            borderRadius: '8px'
+          }}>
+            <img 
+              src={part} 
+              alt="img" 
+              style={{ 
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'cover'
+              }} 
+            />
           </div>
         );
       }
@@ -19,7 +33,10 @@ export const renderContent = (content: string) => {
           href={part} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="has-text-info"
+          style={{
+            color: '#3498db',
+            wordBreak: 'break-word'
+          }}
         >
           {part}
         </a>
