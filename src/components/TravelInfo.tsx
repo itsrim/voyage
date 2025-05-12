@@ -14,7 +14,7 @@ export const TravelInfo: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const data = await readTripData();
+        const data: any = await readTripData();
         
         // Load background image
         const backgroundEntry = data.find((item: any) => 

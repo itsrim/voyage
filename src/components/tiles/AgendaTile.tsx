@@ -64,7 +64,7 @@ const AgendaContent: React.FC = () => {
   useEffect(() => {
     const loadTripData = async () => {
       try {
-        const data = await readTripData();
+        const data: any = await readTripData();
         const agendaItems = data.filter((item: any) => item.Category === 'Agenda');
 
         const groupedActivities = agendaItems.reduce((acc: any, item: any) => {

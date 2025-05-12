@@ -27,7 +27,7 @@ const TransportContent: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const data: TransportDataItem[] = await readTripData();
+        const data: any | TransportDataItem[] = await readTripData();
         const transportData = data.filter((item: any) => item.Category === 'Transport');
         
         setTransport({

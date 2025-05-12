@@ -14,7 +14,7 @@ export const Tile: React.FC<TileProps> = ({ title, image, children }) => {
   useEffect(() => {
     const loadBackgroundImage = async () => {
       try {
-        const data = await readTripData();
+        const data:any = await readTripData();
         const tileType = image.split('trip-')[1]?.split('.')[0];
         
         if (tileType) {

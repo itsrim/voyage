@@ -14,7 +14,7 @@ const DestinationContent: React.FC = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const data = await readTripData();
+        const data: any = await readTripData();
         const destinationData = data.filter((item: any) => item.Category === 'Destination');
         
         setDestination({
