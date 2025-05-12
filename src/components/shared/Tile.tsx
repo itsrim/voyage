@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { readTripData } from '../../utils/readTripData';
 
 interface TileProps {
   title: string;
@@ -8,6 +9,30 @@ interface TileProps {
 
 export const Tile: React.FC<TileProps> = ({ title, image, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState(image);
+
+  useEffect(() => {
+    const loadBackgroundImage = async () => {
+      try {
+        const data = await readTripData();
+        const tileType = image.split('trip-')[1]?.split('.')[0];
+        
+        if (tileType) {
+          const imageEntry = data.find((item: any) => 
+            item.Category === `trip-${tileType}`
+          );
+          
+          if (imageEntry?.Subcategory && imageEntry.Subcategory.trim() !== '') {
+            setBackgroundImage(imageEntry.Subcategory.trim());
+          }
+        }
+      } catch (error) {
+        console.error('Error loading image:', error);
+      }
+    };
+
+    loadBackgroundImage();
+  }, [image]);
 
   const handleClick = () => setIsOpen(!isOpen);
 
@@ -20,7 +45,7 @@ export const Tile: React.FC<TileProps> = ({ title, image, children }) => {
         className="tile-header"
         onClick={handleClick}
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(${image})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '150px',
