@@ -65,17 +65,17 @@ Agenda,Lun. 21 Juillet,09:00,your activity
 Agenda,Lun. 21 Juillet,12:00,your activity
 Agenda,Lun. 21 Juillet,14:00,your activity
 Agenda,Lun. 21 Juillet,16:00,your activity
-Practical Info,,Emergency Numbers
-Practical Info,,Local Customs
-Practical Info,,Currency Information
-Contacts,,Hotel Contact
-Contacts,,Emergency Numbers
-Contacts,,Tour Guides
+Practical Info,112,Emergency Numbers
+Practical Info,numero de sergio,Local Customs
+Practical Info,famille de Sergio,Currency Information
+Contacts,Kenji Girac,Hotel Contact
+Contacts,112,Emergency Numbers
+Contacts,Gordon,Tour Guides
 trip-background, ,
 trip-destination, ,
 trip-calendar, ,
 trip-info, ,
 trip-transport, ,
 trip-contacts, ,
-title,Portugal
+title,Portugal (local) 
 dateTitle,12 - 20 Juillet 2025
