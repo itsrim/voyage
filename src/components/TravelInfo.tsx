@@ -9,7 +9,7 @@ import { ContactTile } from './tiles/ContactTile';
 export const TravelInfo: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState('/voyage/trip-background.jpg');
   const [title, setTitle] = useState('Titre');
-  const [dateTitle, setDateTitle] = useState('dates du séjour');
+  const [dateTitle, setDateTitle] = useState('Chargement... dates');
 
   useEffect(() => {
     const loadData = async () => {
