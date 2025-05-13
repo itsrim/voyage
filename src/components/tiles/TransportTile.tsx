@@ -67,17 +67,35 @@ const TransportContent: React.FC = () => {
       <div className="tabs is-boxed">
         <ul>
           <li className={activeTab === 'airport' ? 'is-active' : ''}>
-            <a onClick={() => setActiveTab('airport')}>
+            <a 
+              onClick={() => setActiveTab('airport')} 
+              style={{ 
+                color: 'white',
+                backgroundColor: activeTab === 'airport' ? '#01a3a4' : 'transparent'
+              }}
+            >
               <span>Airport</span>
             </a>
           </li>
           <li className={activeTab === 'train' ? 'is-active' : ''}>
-            <a onClick={() => setActiveTab('train')}>
+            <a 
+              onClick={() => setActiveTab('train')} 
+              style={{ 
+                color: 'white',
+                backgroundColor: activeTab === 'train' ? '#01a3a4' : 'transparent'
+              }}
+            >
               <span>Train</span>
             </a>
           </li>
           <li className={activeTab === 'bus' ? 'is-active' : ''}>
-            <a onClick={() => setActiveTab('bus')}>
+            <a 
+              onClick={() => setActiveTab('bus')} 
+              style={{ 
+                color: 'white',
+                backgroundColor: activeTab === 'bus' ? '#01a3a4' : 'transparent'
+              }}
+            >
               <span>Local Transport</span>
             </a>
           </li>

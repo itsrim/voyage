@@ -37,17 +37,35 @@ const DestinationContent: React.FC = () => {
       <div className="tabs is-boxed">
         <ul>
           <li className={activeTab === 'cities' ? 'is-active' : ''}>
-            <a onClick={() => setActiveTab('cities')}>
+            <a 
+              onClick={() => setActiveTab('cities')} 
+              style={{ 
+                color: 'white',
+                backgroundColor: activeTab === 'cities' ? '#01a3a4' : 'transparent'
+              }}
+            >
               <span>Cities</span>
             </a>
           </li>
           <li className={activeTab === 'hotel' ? 'is-active' : ''}>
-            <a onClick={() => setActiveTab('hotel')}>
+            <a 
+              onClick={() => setActiveTab('hotel')} 
+              style={{ 
+                color: 'white',
+                backgroundColor: activeTab === 'hotel' ? '#01a3a4' : 'transparent'
+              }}
+            >
               <span>Hotel</span>
             </a>
           </li>
           <li className={activeTab === 'weather' ? 'is-active' : ''}>
-            <a onClick={() => setActiveTab('weather')}>
+            <a 
+              onClick={() => setActiveTab('weather')} 
+              style={{ 
+                color: 'white',
+                backgroundColor: activeTab === 'weather' ? '#01a3a4' : 'transparent'
+              }}
+            >
               <span>Weather</span>
             </a>
           </li>

@@ -25,21 +25,27 @@ const DaySchedule: React.FC<DayScheduleProps> = ({
       <div 
         className="day-header p-4" 
         onClick={() => setIsOpen(!isOpen)}
-        style={{ cursor: 'pointer' }}
+        style={{ 
+          cursor: 'pointer',
+          backgroundColor: isOpen ? '#01a3a4' : '#2d3436',  // Couleur active identique à celle du tableau
+          color: 'white',
+          borderRadius: isOpen ? '8px 8px 0 0' : '8px',
+          transition: 'background-color 0.3s ease'
+        }}
       >
         <h3 className="has-text-white mb-0">{date} {dayNumber} {month}</h3>
       </div>
 
       {isOpen && (
         <div className="schedule-content p-4">
-          <table className="table is-fullwidth is-striped" style={{ color: 'white' }}>
+          <table className="table is-fullwidth" style={{ color: 'white', borderCollapse: 'collapse' }}>
             <tbody>
               {activities.map((activity, index) => (
-                <tr key={index} style={{ borderBottom: index < activities.length - 1 ? '1px solid white' : 'none' }}>
-                  <td style={{ width: '120px', backgroundColor: '#01a3a4', padding: '12px' }}>
+                <tr key={index}>
+                  <td style={{ width: '120px', backgroundColor: '#01a3a4', padding: '12px', color: 'white' }}>
                     {activity.time}
                   </td>
-                  <td style={{ padding: '12px', backgroundColor: '#576574', }}>
+                  <td style={{ padding: '12px', backgroundColor: '#576574', color: 'white' }}>
                     {renderContent(activity.activity)}
                   </td>
                 </tr>
@@ -48,7 +54,6 @@ const DaySchedule: React.FC<DayScheduleProps> = ({
           </table>
         </div>
       )}
-
     </div>
   );
 };
